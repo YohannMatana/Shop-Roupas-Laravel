@@ -11,6 +11,9 @@ export default {
 
     theme: {
         extend: {
+            screens: {
+                'ms': {'max': '639px'}, // Tamanho de tela personalizado para dispositivos móveis
+            },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
@@ -20,4 +23,5 @@ export default {
     plugins: [forms],
 
     darkMode: 'class' // Just add this line at the bottom.
+    
 };

@@ -12,7 +12,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex items-center">
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                    <x-nav-link class="mb-1" :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('Home') }}
                     </x-nav-link>
 
@@ -42,13 +42,11 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6 space-x-4">
-
                 <button id="theme-toggle" type="button"
                     class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
                     <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
@@ -62,7 +60,13 @@
                             fill-rule="evenodd" clip-rule="evenodd"></path>
                     </svg>
                 </button>
-
+                <form class="flex">
+                    <button class="flex items-center gap-2 px-3 py-2 border border-gray-800 dark:border-gray-200 text-gray-800 dark:text-gray-200 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700" type="submit">
+                        <i class="fas fa-shopping-cart"></i>                        
+                        <span class="ml-1 px-2 py-1 bg-gray-800 text-white rounded-full">0</span>
+                    </button>
+                </form>
+                
 
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
