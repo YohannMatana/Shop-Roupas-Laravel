@@ -5,7 +5,7 @@ function carousel() {
         autoRotate() {
             setInterval(() => {
                 this.next();
-            }, 4000);
+            }, 6000);
         },
         next() {
             this.currentIndex = (this.currentIndex + 1) % this.images.length;

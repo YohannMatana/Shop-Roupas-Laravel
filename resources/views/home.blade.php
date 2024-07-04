@@ -5,7 +5,7 @@
                 <div class="text-center text-white">
                     <div x-data="carousel()" x-init="autoRotate()" class="max-w-5xl mx-auto">
                         <div class="relative overflow-hidden rounded-lg">
-                            <div x-ref="carousel" class="flex h-60 ms:h-36 transition-transform duration-300"> 
+                            <div x-ref="carousel" class="flex h-60 ms:h-36 transition-transform duration-300">
                                 {{-- mobile h-36 web h-60 (utilizar somente imagens verticais)--}}
                                 <!-- Adicione suas imagens aqui -->
                                 <div class="min-w-full flex">
@@ -100,5 +100,5 @@
             </div>
         </div>
     </div>
-    
+
 </x-app-layout>
