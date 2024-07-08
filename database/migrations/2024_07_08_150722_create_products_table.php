@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->decimal('price', 8, 2); // Preço do produto
             $table->boolean('promotion')->default(0); // Indica se está em promoção (1 ou 0)
             $table->string('size')->nullable(); // Tamanho do produto
+            $table->string('color')->nullable(); // Cor do Produto
             $table->string('image')->nullable(); // URL da imagem do produto
             $table->text('description')->nullable(); // Descrição do produto
             $table->integer('stock')->default(0); // Quantidade em estoque

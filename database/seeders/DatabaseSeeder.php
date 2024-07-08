@@ -18,8 +18,9 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'yohann Matana',
+            'email' => 'yohann.antunes18@gmail.com',
+            'password' => '123456',
         ]);
 
         Product::create([
@@ -27,6 +28,7 @@ class DatabaseSeeder extends Seeder
             'price' => 29.99,
             'promotion' => 0,
             'size' => 'M',
+            'color' => 'Vermelho',
             'image' => 'caminho/para/imagem.jpg',
             'description' => 'Camiseta confortável',
             'stock' => 10,
@@ -38,6 +40,7 @@ class DatabaseSeeder extends Seeder
             'price' => 59.99,
             'promotion' => 1,
             'size' => 'L',
+            'color' => 'Azul',
             'image' => 'caminho/para/imagem2.jpg',
             'description' => 'Calça jeans elegante',
             'stock' => 5,
