@@ -1,24 +1,7 @@
 <x-app-layout>
     <div class="bg-white dark:bg-gray-800">
         <div class="pt-6">
-            <nav aria-label="Breadcrumb">
-                <ol role="list"
-                    class="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-                    <li>
-                        <div class="flex items-center">
-                            <a href="#" class="mr-2 text-sm font-medium text-gray-900 dark:text-white dark:hover:text-gray-300">Bolsas</a>
-                            <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true"
-                                class="h-5 w-4 text-gray-300">
-                                <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
-                            </svg>
-                        </div>
-                    </li>
-                    <li class="text-sm">
-                        <a href="#" aria-current="page"
-                            class="font-medium text-gray-500 hover:text-gray-600 dark:text-400 dark:hover:text-gray-300" >Bolsa Shein Rosa</a>
-                    </li>
-                </ol>
-            </nav>
+            <x-slot name="header"></x-slot>
 
             <!-- Image gallery -->
             <div class="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
@@ -81,7 +64,7 @@
                             <fieldset aria-label="Choose a color" class="mt-4" x-data="{ color: '' }">
                                 <div class="flex items-center space-x-3">
                                     <!-- Active and Checked: "ring ring-offset-1" -->
-                                    <label aria-label="White" :class="{ 'ring ring-offset-1': color === 'White' }"
+                                    <label aria-label="White" :class="{ 'ring ring-offset-3': color === 'White' }"
                                         class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 ring-gray-400 focus:outline-none">
                                         <input type="radio" name="color-choice" value="White" class="sr-only"
                                             @click="color = 'White'">
@@ -89,7 +72,7 @@
                                             class="h-8 w-8 rounded-full border border-black border-opacity-10 bg-white"></span>
                                     </label>
                                     <!-- Active and Checked: "ring ring-offset-1" -->
-                                    <label aria-label="Gray" :class="{ 'ring ring-offset-1': color === 'Gray' }"
+                                    <label aria-label="Gray" :class="{ 'ring ring-offset-3': color === 'Gray' }"
                                         class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 ring-gray-400 focus:outline-none">
                                         <input type="radio" name="color-choice" value="Gray" class="sr-only"
                                             @click="color = 'Gray'">
@@ -97,7 +80,7 @@
                                             class="h-8 w-8 rounded-full border border-black border-opacity-10 bg-gray-200"></span>
                                     </label>
                                     <!-- Active and Checked: "ring ring-offset-1" -->
-                                    <label aria-label="Black" :class="{ 'ring ring-offset-1': color === 'Black' }"
+                                    <label aria-label="Black" :class="{ 'ring ring-offset-3': color === 'Black' }"
                                         class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 ring-gray-400 focus:outline-none">
                                         <input type="radio" name="color-choice" value="Black" class="sr-only"
                                             @click="color = 'Black'">
@@ -118,7 +101,7 @@
                             <fieldset class="mt-4" x-data="{ size: '' }">
                                 <div class="grid grid-cols-4 gap-4">
                                     <label
-                                        class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-gray-50 dark:bg-gray-300 px-4 py-3 text-sm font-medium uppercase text-gray-200  hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6"
+                                        class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-gray-50 dark:bg-gray-300 px-4 py-3 text-sm font-medium uppercase text-gray-200 dark:text-gray-400  hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6"
                                         :class="{ 'cursor-not-allowed': isSizeDisabled('XXS') }">
                                         <input type="radio" name="size-choice" value="XXS"
                                             :disabled="isSizeDisabled('XXS')" class="sr-only" @click="size = 'XXS'">

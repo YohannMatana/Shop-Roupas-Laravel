@@ -17,6 +17,14 @@ class ProductController extends Controller
         return view('product', compact('user', 'products'));
     }
 
+
+    public function list()
+    {
+        $user = Auth::user();
+        $products = Product::all();
+        return view('productList', compact('user', 'products'));
+    }
+
 // Buscar todos os produtos
 // $products = Product::all();
 
