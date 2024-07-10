@@ -10,8 +10,11 @@ Route::get('/', function () {
     return view('home');
 });
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/produto', [ProductController::class, 'index'])->name('product');
 Route::get('/produto/lista', [ProductController::class, 'list'])->name('product.list');
+Route::get('/produto/{id}', [ProductController::class, 'show'])->name('products.show');
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

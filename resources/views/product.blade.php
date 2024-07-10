@@ -1,20 +1,26 @@
 <x-app-layout>
+
+    <x-product-header :product="$product" />
+
     <div class="bg-white dark:bg-gray-800">
         <div class="pt-6">
             <x-slot name="header"></x-slot>
 
             <!-- Image gallery -->
             <div class="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
-                <div class="h-1/2 ml-auto mr-auto w-9/12 overflow-hidden rounded-lg">
-                    <img src="{{ asset('images/bolsa2.png') }}" class="mx-auto h-full rounded-lg">
+                <div class="h-4/5 ml-auto mr-auto w-auto overflow-hidden rounded-lg">
+                    <img src="{{ asset('images/bolsa2.png') }}" alt="{{ $product->name }}"
+                        class="mx-auto h-full rounded-lg">
                 </div>
 
                 <!-- Product info -->
                 <div class="px-4 pb-16 pt-10 sm:px-6 lg:px-8 lg:pb-24 lg:pt-16">
-                    <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl dark:text-white">Bolsa Shein Rosa</h1>
-                    <p class="text-3xl tracking-tight text-gray-900 mt-4 dark:text-gray-300">R$ 192</p>
+                    <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl dark:text-white">
+                        {{ $product->name }}</h1>
+                    <p class="text-3xl tracking-tight text-gray-900 mt-4 dark:text-gray-300">R$
+                        {{ number_format($product->price, 2, ',', '.') }}</p>
 
-                    <!-- Reviews -->
+                    {{-- <!-- Reviews -->
                     <div class="mt-6">
                         <h3 class="sr-only">Reviews</h3>
                         <div class="flex items-center">
@@ -54,12 +60,12 @@
                             <a href="#" class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-100 dark:hover:text-indigo-500">117
                                 reviews</a>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <form class="mt-10">
                         <!-- Colors -->
                         <div>
-                            <h3 class="text-sm font-medium text-gray-900 dark:text-white">Color</h3>
+                            <h3 class="text-sm font-medium text-gray-900 dark:text-white">Cor</h3>
 
                             <fieldset aria-label="Choose a color" class="mt-4" x-data="{ color: '' }">
                                 <div class="flex items-center space-x-3">
@@ -94,9 +100,9 @@
                         <!-- Sizes -->
                         <div class="mt-10">
                             <div class="flex items-center justify-between">
-                                <h3 class="text-sm font-medium text-gray-900 dark:text-white">Size</h3>
-                                <a href="#"
-                                    class="text-sm font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-100 dark:hover:text-indigo-500">Size guide</a>
+                                <h3 class="text-sm font-medium text-gray-900 dark:text-white">Tamanho</h3>
+                                {{-- <a href="#"
+                                    class="text-sm font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-100 dark:hover:text-indigo-500">Guia de Tamanho</a> --}}
                             </div>
                             <fieldset class="mt-4" x-data="{ size: '' }">
                                 <div class="grid grid-cols-4 gap-4">
@@ -109,8 +115,7 @@
                                         <span aria-hidden="true"
                                             class="pointer-events-none absolute -inset-px rounded-md border-2 border-gray-200 dark:border-gray-400">
                                             <svg class="absolute inset-0 h-full w-full stroke-2 text-gray-200 dark:text-gray-400"
-                                                viewBox="0 0 100 100" preserveAspectRatio="none"
-                                                stroke="currentColor">
+                                                viewBox="0 0 100 100" preserveAspectRatio="none" stroke="currentColor">
                                                 <line x1="0" y1="100" x2="100" y2="0"
                                                     vector-effect="non-scaling-stroke" />
                                             </svg>
@@ -163,8 +168,8 @@
                         </div>
 
                         <button type="submit"
-                            class="mt-10 mb-10 w-full flex items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add
-                            to bag</button>
+                            class="mt-10 mb-10 w-full flex items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Adicionar
+                            a Sacola</button>
                     </form>
                     <div
                         class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
@@ -173,15 +178,11 @@
 
 
                             <div class="space-y-6">
-                                <p class="text-base text-gray-900 dark:text-gray-200">The Basic Tee 6-Pack allows you to fully express
-                                    your vibrant personality with three grayscale options. Feeling adventurous? Put on a
-                                    heather gray tee. Want to be a trendsetter? Try our exclusive colorway:
-                                    &quot;Black&quot;. Need to add an extra pop of color to your outfit? Our white tee
-                                    has you covered.</p>
+                                <p class="text-base text-gray-900 dark:text-gray-200">{{ $product->description }}</p>
                             </div>
                         </div>
 
-                        <div class="mt-10">
+                        {{-- <div class="mt-10">
                             <h3 class="text-sm font-medium text-gray-900 dark:text-gray-400">Highlights</h3>
 
                             <div class="mt-4">
@@ -207,7 +208,7 @@
                                     get new, exciting colors, like our upcoming &quot;Charcoal Gray&quot; limited
                                     release.</p>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

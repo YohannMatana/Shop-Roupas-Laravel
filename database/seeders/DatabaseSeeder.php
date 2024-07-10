@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
             'image' => 'caminho/para/imagem.jpg',
             'description' => 'Camiseta confortável',
             'stock' => 10,
-            'category' => 'Roupas',
+            'category' => 'Vestidos',
         ]);
 
         Product::create([
@@ -44,7 +44,19 @@ class DatabaseSeeder extends Seeder
             'image' => 'caminho/para/imagem2.jpg',
             'description' => 'Calça jeans elegante',
             'stock' => 5,
-            'category' => 'Roupas',
+            'category' => 'Cintos',
+        ]);
+
+        Product::create([
+            'name' => 'Bolsa Rosa Shein',
+            'price' => 59.99,
+            'promotion' => 1,
+            'size' => 'L',
+            'color' => 'Azul',
+            'image' => 'images/bolsa2.png',
+            'description' => 'Calça jeans elegante',
+            'stock' => 5,
+            'category' => 'Bolsas',
         ]);
     }
 }
