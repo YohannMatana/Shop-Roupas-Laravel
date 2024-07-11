@@ -10,7 +10,7 @@ Route::get('/', function () {
     return view('home');
 });
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/produto/lista', [ProductController::class, 'list'])->name('product.list');
+Route::get('/produtos/categoria/{category}', [ProductController::class, 'list'])->name('product.list');
 Route::get('/produto/{id}', [ProductController::class, 'show'])->name('products.show');
 
 

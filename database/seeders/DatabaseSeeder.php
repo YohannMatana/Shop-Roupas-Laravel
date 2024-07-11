@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\Product;
+use App\Models\Category;
+
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -57,6 +59,21 @@ class DatabaseSeeder extends Seeder
             'description' => 'Calça jeans elegante',
             'stock' => 5,
             'category' => 'Bolsas',
+        ]);
+
+        Category::create([
+            'name' => 'Bolsas',
+            'image' => 'images/bolsa2.png',
+        ]);
+
+        Category::create([
+            'name' => 'Cintos',
+            'image' => 'images/bolsa2.png',
+        ]);
+
+        Category::create([
+            'name' => 'Vestidos',
+            'image' => 'images/bolsa2.png',
         ]);
     }
 }

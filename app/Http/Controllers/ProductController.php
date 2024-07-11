@@ -15,11 +15,11 @@ class ProductController extends Controller
         return view('product', compact('user', 'products'));
     }
 
-    public function list()
+    public function list($category)
     {
         $user = Auth::user();
-        $products = Product::all();
-        return view('productList', compact('user', 'products'));
+        $products = Product::where('category', $category)->get();
+        return view('productList', compact('user', 'products', 'category'));
     }
 
     public function show($id)
@@ -27,6 +27,4 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         return view('product', compact('product'));
     }
-
-
 }
