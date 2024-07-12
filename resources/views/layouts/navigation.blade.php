@@ -15,16 +15,17 @@
                     <x-nav-link class="mb-1" :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('Home') }}
                     </x-nav-link>
-                    <x-nav-link class="mb-1" :href="route('product.list', ['category' => 'bolsas'])" :active="request()->routeIs('product.list')">
+                    <x-nav-link class="mb-1" :href="route('product.list', ['category' => 'bolsas'])" :active="request()->is('produtos/categoria/bolsas')">
                         {{ __('Bolsas') }}
                     </x-nav-link>
-                    <x-nav-link class="mb-1" :href="route('product.list', ['category' => 'cintos'])" :active="request()->routeIs('product.list')">
+                    <x-nav-link class="mb-1" :href="route('product.list', ['category' => 'cintos'])" :active="request()->is('produtos/categoria/cintos')">
                         {{ __('Cintos') }}
                     </x-nav-link>
-                    <x-nav-link class="mb-1" :href="route('product.list', ['category' => 'vestidos'])" :active="request()->routeIs('product.list')">
+                    <x-nav-link class="mb-1" :href="route('product.list', ['category' => 'vestidos'])" :active="request()->is('produtos/categoria/vestidos')">
                         {{ __('Vestidos') }}
                     </x-nav-link>
                 </div>
+
             </div>
 
             <!-- Settings Dropdown -->
