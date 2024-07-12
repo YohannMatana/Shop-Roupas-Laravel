@@ -20,7 +20,7 @@ class ProductController extends Controller
     public function list($category)
     {
         $user = Auth::user();
-        $products = Product::where('category', $category)->get();
+        $products = Product::where('category', $category)->paginate(2);
         return view('productList', compact('user', 'products', 'category'));
     }
 

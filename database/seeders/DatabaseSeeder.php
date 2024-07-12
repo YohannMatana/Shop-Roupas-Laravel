@@ -26,38 +26,112 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Product::create([
-            'name' => 'Camiseta',
-            'price' => 29.99,
+            'name' => 'Vestido Floral',
+            'price' => 79.99,
             'promotion' => 0,
-            'size' => 'M',
-            'color' => 'Vermelho',
-            'image' => 'caminho/para/imagem.jpg',
-            'description' => 'Camiseta confortável',
-            'stock' => 10,
+            'size' => 'S',
+            'color' => 'Floral',
+            'image' => 'caminho/para/vestido_floral.jpg',
+            'description' => 'Vestido floral para o verão',
+            'stock' => 15,
             'category' => 'Vestidos',
         ]);
 
         Product::create([
-            'name' => 'Calça Jeans',
-            'price' => 59.99,
+            'name' => 'Vestido de Festa',
+            'price' => 199.99,
+            'promotion' => 0,
+            'size' => 'M',
+            'color' => 'Preto',
+            'image' => 'caminho/para/vestido_festa.jpg',
+            'description' => 'Vestido de festa elegante',
+            'stock' => 8,
+            'category' => 'Vestidos',
+        ]);
+
+        Product::create([
+            'name' => 'Vestido Casual',
+            'price' => 49.99,
             'promotion' => 1,
             'size' => 'L',
-            'color' => 'Azul',
-            'image' => 'caminho/para/imagem2.jpg',
-            'description' => 'Calça jeans elegante',
-            'stock' => 5,
+            'color' => 'Verde',
+            'image' => 'caminho/para/vestido_casual.jpg',
+            'description' => 'Vestido casual confortável',
+            'stock' => 12,
+            'category' => 'Vestidos',
+        ]);
+
+        // Produtos na categoria "Cintos"
+        Product::create([
+            'name' => 'Cinto de Couro',
+            'price' => 29.99,
+            'promotion' => 0,
+            'size' => 'Único',
+            'color' => 'Marrom',
+            'image' => 'caminho/para/cinto_couro.jpg',
+            'description' => 'Cinto de couro genuíno',
+            'stock' => 20,
             'category' => 'Cintos',
         ]);
 
         Product::create([
-            'name' => 'Bolsa Rosa Shein',
-            'price' => 59.99,
+            'name' => 'Cinto Preto',
+            'price' => 19.99,
+            'promotion' => 1,
+            'size' => 'Único',
+            'color' => 'Preto',
+            'image' => 'caminho/para/cinto_preto.jpg',
+            'description' => 'Cinto preto clássico',
+            'stock' => 25,
+            'category' => 'Cintos',
+        ]);
+
+        Product::create([
+            'name' => 'Cinto Vermelho',
+            'price' => 24.99,
+            'promotion' => 0,
+            'size' => 'Único',
+            'color' => 'Vermelho',
+            'image' => 'caminho/para/cinto_vermelho.jpg',
+            'description' => 'Cinto vermelho vibrante',
+            'stock' => 10,
+            'category' => 'Cintos',
+        ]);
+
+        // Produtos na categoria "Bolsas"
+        Product::create([
+            'name' => 'Bolsa Preta',
+            'price' => 89.99,
+            'promotion' => 0,
+            'size' => 'M',
+            'color' => 'Preto',
+            'image' => 'caminho/para/bolsa_preta.jpg',
+            'description' => 'Bolsa preta elegante',
+            'stock' => 5,
+            'category' => 'Bolsas',
+        ]);
+
+        Product::create([
+            'name' => 'Bolsa de Praia',
+            'price' => 39.99,
             'promotion' => 1,
             'size' => 'L',
-            'color' => 'Azul',
-            'image' => 'images/bolsa2.png',
-            'description' => 'Calça jeans elegante',
-            'stock' => 5,
+            'color' => 'Colorida',
+            'image' => 'caminho/para/bolsa_praia.jpg',
+            'description' => 'Bolsa de praia grande',
+            'stock' => 8,
+            'category' => 'Bolsas',
+        ]);
+
+        Product::create([
+            'name' => 'Bolsa de Mão',
+            'price' => 49.99,
+            'promotion' => 0,
+            'size' => 'P',
+            'color' => 'Branco',
+            'image' => 'caminho/para/bolsa_mao.jpg',
+            'description' => 'Bolsa de mão prática',
+            'stock' => 10,
             'category' => 'Bolsas',
         ]);
 
