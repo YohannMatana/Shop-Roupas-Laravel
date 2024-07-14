@@ -15,9 +15,9 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/produtos/categoria/{category}', [ProductController::class, 'list'])->name('product.list');
 Route::get('/produto/{id}', [ProductController::class, 'show'])->name('products.show');
 //Cart
-// Route::middleware('auth')->group(function () {
-// Route::get('/sacola', [CartController::class, 'sacola'])->name('sacola');
-// });
+Route::middleware('auth')->group(function () {
+Route::get('/sacola', [CartController::class, 'sacola'])->name('sacola');
+});
 
 
 

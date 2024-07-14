@@ -4,7 +4,7 @@
             <img class="w-auto h-7" src="https://merakiui.com/images/full-logo.svg" alt="">
         </a>
 
-        <p class="text-sm text-gray-600 dark:text-gray-300">© Copyright 2021. All Rights Reserved.</p>
+        <p class="text-sm text-gray-600 dark:text-gray-300">© Copyright 2022. All Rights Reserved.</p>
 
         <div class="flex -mx-2">
             <a href="#"
