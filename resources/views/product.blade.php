@@ -62,33 +62,35 @@
                         </div>
                     </div> --}}
 
-                    <form class="mt-10">
+                    <form action="{{ route('cart.add') }}" method="POST" class="mt-10"
+                        onsubmit="return validateForm()">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <input type="hidden" name="quantity" value="1">
+
                         <!-- Colors -->
                         <div>
                             <h3 class="text-sm font-medium text-gray-900 dark:text-white">Cor</h3>
 
                             <fieldset aria-label="Choose a color" class="mt-4" x-data="{ color: '' }">
                                 <div class="flex items-center space-x-3">
-                                    <!-- Active and Checked: "ring ring-offset-1" -->
                                     <label aria-label="White" :class="{ 'ring ring-offset-3': color === 'White' }"
                                         class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 ring-gray-400 focus:outline-none">
-                                        <input type="radio" name="color-choice" value="White" class="sr-only"
+                                        <input type="radio" name="color" value="White" class="sr-only"
                                             @click="color = 'White'">
                                         <span aria-hidden="true"
                                             class="h-8 w-8 rounded-full border border-black border-opacity-10 bg-white"></span>
                                     </label>
-                                    <!-- Active and Checked: "ring ring-offset-1" -->
                                     <label aria-label="Gray" :class="{ 'ring ring-offset-3': color === 'Gray' }"
                                         class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 ring-gray-400 focus:outline-none">
-                                        <input type="radio" name="color-choice" value="Gray" class="sr-only"
+                                        <input type="radio" name="color" value="Gray" class="sr-only"
                                             @click="color = 'Gray'">
                                         <span aria-hidden="true"
                                             class="h-8 w-8 rounded-full border border-black border-opacity-10 bg-gray-200"></span>
                                     </label>
-                                    <!-- Active and Checked: "ring ring-offset-1" -->
                                     <label aria-label="Black" :class="{ 'ring ring-offset-3': color === 'Black' }"
                                         class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 ring-gray-400 focus:outline-none">
-                                        <input type="radio" name="color-choice" value="Black" class="sr-only"
+                                        <input type="radio" name="color" value="Black" class="sr-only"
                                             @click="color = 'Black'">
                                         <span aria-hidden="true"
                                             class="h-8 w-8 rounded-full border border-black border-opacity-10 bg-gray-900"></span>
@@ -101,76 +103,68 @@
                         <div class="mt-10">
                             <div class="flex items-center justify-between">
                                 <h3 class="text-sm font-medium text-gray-900 dark:text-white">Tamanho</h3>
-                                {{-- <a href="#"
-                                    class="text-sm font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-100 dark:hover:text-indigo-500">Guia de Tamanho</a> --}}
                             </div>
                             <fieldset class="mt-4" x-data="{ size: '' }">
                                 <div class="grid grid-cols-4 gap-4">
-                                    <label
-                                        class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-gray-50 dark:bg-gray-300 px-4 py-3 text-sm font-medium uppercase text-gray-200 dark:text-gray-400  hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6"
-                                        :class="{ 'cursor-not-allowed': isSizeDisabled('XXS') }">
-                                        <input type="radio" name="size-choice" value="XXS"
-                                            :disabled="isSizeDisabled('XXS')" class="sr-only" @click="size = 'XXS'">
-                                        <span>XXS</span>
-                                        <span aria-hidden="true"
-                                            class="pointer-events-none absolute -inset-px rounded-md border-2 border-gray-200 dark:border-gray-400">
-                                            <svg class="absolute inset-0 h-full w-full stroke-2 text-gray-200 dark:text-gray-400"
-                                                viewBox="0 0 100 100" preserveAspectRatio="none" stroke="currentColor">
-                                                <line x1="0" y1="100" x2="100" y2="0"
-                                                    vector-effect="non-scaling-stroke" />
-                                            </svg>
-                                        </span>
-                                    </label>
                                     <label :class="{ 'ring ring-offset-1': size === 'XS' }"
                                         class="group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none sm:flex-1 sm:py-6">
-                                        <input type="radio" name="size-choice" value="XS" class="sr-only"
+                                        <input type="radio" name="size" value="XS" class="sr-only"
                                             @click="size = 'XS'">
-                                        <span id="size-choice-1-label">XS</span>
+                                        <span>XS</span>
                                     </label>
                                     <label :class="{ 'ring ring-offset-1': size === 'S' }"
                                         class="group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase bg-white dark:bg-gray-600 dark:text-white text-gray-900 shadow-sm cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none sm:flex-1 sm:py-6">
-                                        <input type="radio" name="size-choice" value="S" class="sr-only"
+                                        <input type="radio" name="size" value="S" class="sr-only"
                                             @click="size = 'S'">
-                                        <span id="size-choice-2-label">S</span>
+                                        <span>S</span>
                                     </label>
                                     <label :class="{ 'ring ring-offset-1': size === 'M' }"
                                         class="group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase bg-white dark:bg-gray-600 dark:text-white text-gray-900 shadow-sm cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none sm:flex-1 sm:py-6">
-                                        <input type="radio" name="size-choice" value="M" class="sr-only"
+                                        <input type="radio" name="size" value="M" class="sr-only"
                                             @click="size = 'M'">
-                                        <span id="size-choice-3-label">M</span>
+                                        <span>M</span>
                                     </label>
                                     <label :class="{ 'ring ring-offset-1': size === 'L' }"
                                         class="group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase bg-white dark:bg-gray-600 dark:text-white text-gray-900 shadow-sm cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none sm:flex-1 sm:py-6">
-                                        <input type="radio" name="size-choice" value="L" class="sr-only"
+                                        <input type="radio" name="size" value="L" class="sr-only"
                                             @click="size = 'L'">
-                                        <span id="size-choice-4-label">L</span>
+                                        <span>L</span>
                                     </label>
                                     <label :class="{ 'ring ring-offset-1': size === 'XL' }"
                                         class="group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase bg-white dark:bg-gray-600 dark:text-white text-gray-900 shadow-sm cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none sm:flex-1 sm:py-6">
-                                        <input type="radio" name="size-choice" value="XL" class="sr-only"
+                                        <input type="radio" name="size" value="XL" class="sr-only"
                                             @click="size = 'XL'">
-                                        <span id="size-choice-5-label">XL</span>
+                                        <span>XL</span>
                                     </label>
                                     <label :class="{ 'ring ring-offset-1': size === '2XL' }"
-                                        class="group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase bg-white text-gray-900 dark:bg-gray-600 dark:text-white shadow-sm cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none sm:flex-1 sm:py-6">
-                                        <input type="radio" name="size-choice" value="2XL" class="sr-only"
+                                        class="group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase bg-white dark:bg-gray-600 dark:text-white text-gray-900 shadow-sm cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none sm:flex-1 sm:py-6">
+                                        <input type="radio" name="size" value="2XL" class="sr-only"
                                             @click="size = '2XL'">
-                                        <span id="size-choice-6-label">2XL</span>
+                                        <span>2XL</span>
                                     </label>
                                     <label :class="{ 'ring ring-offset-1': size === '3XL' }"
                                         class="group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase bg-white text-gray-900 dark:bg-gray-600 dark:text-white shadow-sm cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none sm:flex-1 sm:py-6">
-                                        <input type="radio" name="size-choice" value="3XL" class="sr-only"
+                                        <input type="radio" name="size" value="3XL" class="sr-only"
                                             @click="size = '3XL'">
-                                        <span id="size-choice-7-label">3XL</span>
+                                        <span>3XL</span>
                                     </label>
                                 </div>
                             </fieldset>
                         </div>
 
+                        @if ($errors->has('color'))
+                            <p class="text-red-500 text-xs mt-2">{{ $errors->first('color') }}</p>
+                        @endif
+
+                        @if ($errors->has('size'))
+                            <p class="text-red-500 text-xs mt-2">{{ $errors->first('size') }}</p>
+                        @endif
+
                         <button type="submit"
                             class="mt-10 mb-10 w-full flex items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Adicionar
                             a Sacola</button>
                     </form>
+
                     <div
                         class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
                         <!-- Description and details -->
@@ -214,5 +208,5 @@
             </div>
         </div>
 
-        <x-footer/>
+        <x-footer />
 </x-app-layout>

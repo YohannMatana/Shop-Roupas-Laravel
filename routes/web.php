@@ -16,16 +16,18 @@ Route::get('/produtos/categoria/{category}', [ProductController::class, 'list'])
 Route::get('/produto/{id}', [ProductController::class, 'show'])->name('products.show');
 //Cart
 Route::middleware('auth')->group(function () {
-Route::get('/sacola', [CartController::class, 'sacola'])->name('sacola');
+Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
 });
-
-
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/dashboard', function () {return view('dashboard.dashboard');})->name('dashboard');
+Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+Route::get('/dashboard', function () {
+        return view('dashboard.dashboard');
+    })->name('dashboard');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
