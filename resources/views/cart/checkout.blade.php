@@ -5,57 +5,59 @@
                 <div class="flex flex-col md:flex-row md:space-x-6">
                     <!-- Contact Information -->
                     <div class="w-full md:w-2/3">
-                        <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="dark:bg-white bg-gray-100 p-6 rounded-lg shadow-lg">
                             <h2 class="text-lg font-semibold mb-4">Informações de Contato</h2>
                             <form>
+                                <!-- Campo de Email -->
                                 <div class="mb-4">
                                     <label for="email" class="block text-sm font-medium text-gray-700">Endereço de Email</label>
-                                    <input type="email" id="email" name="email" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                    <input type="email" id="email" name="email" value="{{ $user->email }}" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
                                 </div>
-                                <h2 class="text-lg font-semibold mb-4">Informações de Envio</h2>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div>
-                                        <label for="first-name" class="block text-sm font-medium text-gray-700">Nome Completo</label>
-                                        <input type="text" id="first-name" name="first-name" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
-                                    </div>
-                                </div>
-                                <div class="mb-4">
-                                    <label for="address" class="block text-sm font-medium text-gray-700">Endereço</label>
-                                    <input type="text" id="address" name="address" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
-                                </div>
-                                <div class="mb-4">
-                                    <label for="apartment" class="block text-sm font-medium text-gray-700">Ponto de referencia</label>
-                                    <input type="text" id="apartment" name="apartment" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
-                                </div>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div>
-                                        <label for="city" class="block text-sm font-medium text-gray-700">Cidade</label>
-                                        <input type="text" id="city" name="city" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
-                                    </div>
-                                    <div>
-                                        <label for="country" class="block text-sm font-medium text-gray-700">País</label>
-                                        <select id="country" name="country" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
-                                            <option>United States</option>
-                                            <option>Canada</option>
-                                            <option>Mexico</option>
-                                            <option>Brasil</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div>
-                                        <label for="state" class="block text-sm font-medium text-gray-700">Estado</label>
-                                        <input type="text" id="state" name="state" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
-                                    </div>
-                                    <div>
-                                        <label for="postal-code" class="block text-sm font-medium text-gray-700">CEP</label>
-                                        <input type="text" id="postal-code" name="postal-code" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
-                                    </div>
-                                </div>
+                                <!-- Campo de Telefone -->
                                 <div class="mb-4">
                                     <label for="phone" class="block text-sm font-medium text-gray-700">Telefone</label>
-                                    <input type="text" id="phone" name="phone" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                    <input type="text" id="phone" name="phone" value="{{ $user->telefone }}" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
                                 </div>
+                                <!-- Nome Completo -->
+                                <div class="grid grid-cols-1 mb-4 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label for="first-name" class="block text-sm font-medium text-gray-700">Nome Completo</label>
+                                        <input type="text" id="first-name" name="first-name" value="{{ $user->name }}" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                    </div>
+                                </div>
+                                <!-- Endereço -->
+                                <div class="mb-4">
+                                    <label for="address" class="block text-sm font-medium text-gray-700">Endereço</label>
+                                    <input type="text" id="address" name="address" value="{{ $user->endereco }}" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                </div>
+                                <!-- Ponto de Referência -->
+                                <div class="mb-4">
+                                    <label for="apartment" class="block text-sm font-medium text-gray-700">Ponto de Referência</label>
+                                    <input type="text" id="apartment" name="apartment" value="{{ $user->ponto_referencia }}" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                </div>
+                                <!-- Cidade e Estado -->
+                                <div class="grid grid-cols-1 mb-4 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label for="city" class="block text-sm font-medium text-gray-700">Cidade</label>
+                                        <input type="text" id="city" name="city" value="{{ $user->cidade }}" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                    </div>
+                                    <div>
+                                        <label for="state" class="block text-sm font-medium text-gray-700">Estado</label>
+                                        <input type="text" id="state" name="state" value="{{ $user->estado }}" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                    </div>
+                                </div>
+                                <!-- CEP -->
+                                <div class="grid grid-cols-1 mb-4 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label for="postal-code" class="block text-sm font-medium text-gray-700">CEP</label>
+                                        <input type="text" id="postal-code" name="postal-code" value="{{ $user->cep }}" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                    </div>
+                                    <div>
+                                        <label for="postal-code" class="block text-sm font-medium text-gray-700">País</label>
+                                        <input type="text" id="postal-code" name="postal-code" value="{{ $user->pais }}" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                    </div>
+                                </div>
+
                                 <h2 class="text-lg font-semibold mb-4">Pagamento</h2>
                                 <div class="mb-4">
                                     <label class="block text-sm font-medium text-gray-700">Método de Pagamento</label>
@@ -104,34 +106,47 @@
 
                     <!-- Order Summary -->
                     <div class="w-full md:w-1/3 mt-6 md:mt-0">
-                        <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="dark:bg-white bg-gray-100 p-6 rounded-lg shadow-md">
                             <h2 class="text-lg font-semibold mb-4">Resumo da Compra</h2>
                             <div class="space-y-4">
+                                @foreach ($cart as $item)
                                 <div class="flex items-center justify-between">
-                                    <div>
-                                        <h3 class="text-sm font-medium">Basic Tee</h3>
-                                        <p class="text-sm text-gray-500">Black, Large</p>
+                                    <div class="h-16 w-16 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                                        <img src="{{ $item['product']->image }}" alt="{{ $item['product']->name }}" class="h-full w-full object-center">
+                                    </div>
+                                    <div class="ml-4 flex-grow">
+                                        <h3 class="text-sm font-medium">{{ $item['product']->name }}</h3>
+                                        <p class="text-sm text-gray-500">{{ $item['color'] }}, {{ $item['size'] }}</p>
                                     </div>
                                     <div>
-                                        <span class="text-sm font-medium">$32.00</span>
+                                        <span class="text-sm font-medium">R${{ number_format($item['product']->price, 2, ',', '.') }}</span>
                                     </div>
                                 </div>
-
+                                @endforeach
+                            </div>
+                            <div class="mt-6">
+                                <form method="POST" action="{{ route('cart.calculateFrete') }}">
+                                    @csrf
+                                    <div class="flex justify-between text-sm font-medium mt-4">
+                                        <input name="cep" x-data x-ref="cepInput" x-init="$refs.cepInput.addEventListener('input', function () { this.value = this.value.replace(/[^0-9]/g, '').slice(0, 8).replace(/(\d{5})(\d{3})/, '$1-$2') })" type="text" class="w-2/3 px-3 py-2 border border-gray-300 rounded-md" placeholder="CEP" required>
+                                        <button type="submit" class="w-1/3 bg-indigo-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-indigo-700 ml-2">Calcular Frete</button>
+                                    </div>
+                                </form>
                             </div>
                             <div class="border-t border-gray-200 mt-4 pt-4">
                                 <div class="flex justify-between text-sm font-medium">
                                     <p class="text-gray-500">Subtotal</p>
-                                    <p class="text-gray-900">R$96,00</p>
+                                    <p class="text-gray-900">R${{ number_format($subtotal, 2, ',', '.') }}</p>
                                 </div>
                                 <div class="flex justify-between text-sm font-medium">
                                     <p class="text-gray-500">Frete</p>
-                                    <p class="text-gray-900">R$8,00</p>
+                                    <p class="text-gray-900">R${{ number_format($frete, 2, ',', '.') }}</p>
                                 </div>
                             </div>
                             <div class="border-t border-gray-200 mt-4 pt-4">
                                 <div class="flex justify-between text-lg font-medium">
                                     <p>Total</p>
-                                    <p>R$111,00</p>
+                                    <p>R${{ number_format($subtotal + $frete, 2, ',', '.') }}</p>
                                 </div>
                             </div>
                             <div class="mt-6">
@@ -146,4 +161,7 @@
         <!-- Footer -->
         <x-footer class="mt-auto"/>
     </div>
+
+
+
 </x-app-layout>

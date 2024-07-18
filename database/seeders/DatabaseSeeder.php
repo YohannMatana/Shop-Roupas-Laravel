@@ -17,12 +17,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
         User::factory()->create([
-            'name' => 'yohann Matana',
-            'email' => 'yohann.antunes18@gmail.com',
-            'password' => '123456',
+        'name' => 'Yohann Matana',
+        'email' => 'yohann.antunes18@gmail.com',
+        'password' => bcrypt('123456'), // Certifique-se de usar bcrypt para criptografar a senha
+        'endereco' => 'Rua Antonio Pinheiro Sobrinho, 481', // Exemplo de endereço
+        'pais' => 'Brasil', // Exemplo de País
+        'cidade' => 'Rio Branco', // Exemplo de cidade
+        'estado' => 'AC', // Exemplo de estado (utilizando sigla)
+        'cep' => '69918-050', // Exemplo de CEP
+        'telefone' => '(68) 99966-9620', // Exemplo de telefone
+        'ponto_referencia' => 'Próximo ao Horto Florestal', // Exemplo de ponto de referência
         ]);
 
         Product::create([

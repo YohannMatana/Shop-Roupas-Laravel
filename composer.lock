@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1d050499d68cdff7be7160ac5f45de6f",
+    "content-hash": "cd9b52d7d98ab38f9baf96544dba735d",
     "packages": [
         {
             "name": "brick/math",
@@ -3106,6 +3106,149 @@
                 }
             ],
             "time": "2024-04-27T21:32:50+00:00"
+        },
+        {
+            "name": "setasign/fpdi",
+            "version": "1.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Setasign/FPDI.git",
+                "reference": "5b899b2b41463bf261aa69840fd30b50950a500c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Setasign/FPDI/zipball/5b899b2b41463bf261aa69840fd30b50950a500c",
+                "reference": "5b899b2b41463bf261aa69840fd30b50950a500c",
+                "shasum": ""
+            },
+            "suggest": {
+                "setasign/fpdf": "FPDI will extend this class but as it is also possible to use \"tecnickcom/tcpdf\" as an alternative there's no fixed dependency configured.",
+                "setasign/fpdi-fpdf": "Use this package to automatically evaluate dependencies to FPDF.",
+                "setasign/fpdi-tcpdf": "Use this package to automatically evaluate dependencies to TCPDF."
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "filters/",
+                    "fpdi.php",
+                    "fpdf_tpl.php",
+                    "fpdi_pdf_parser.php",
+                    "pdf_context.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jan Slabon",
+                    "email": "jan.slabon@setasign.com",
+                    "homepage": "https://www.setasign.com"
+                }
+            ],
+            "description": "FPDI is a collection of PHP classes facilitating developers to read pages from existing PDF documents and use them as templates in FPDF. Because it is also possible to use FPDI with TCPDF, there are no fixed dependencies defined. Please see suggestions for packages which evaluates the dependencies automatically.",
+            "homepage": "https://www.setasign.com/fpdi",
+            "keywords": [
+                "fpdf",
+                "fpdi",
+                "pdf"
+            ],
+            "support": {
+                "issues": "https://github.com/Setasign/FPDI/issues",
+                "source": "https://github.com/Setasign/FPDI/tree/master"
+            },
+            "time": "2015-11-30T10:53:14+00:00"
+        },
+        {
+            "name": "stavarengo/php-sigep",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stavarengo/php-sigep.git",
+                "reference": "8c258053cc0d133f54d77dde886c77d298ddc2f9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stavarengo/php-sigep/zipball/8c258053cc0d133f54d77dde886c77d298ddc2f9",
+                "reference": "8c258053cc0d133f54d77dde886c77d298ddc2f9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4",
+                "setasign/fpdi": "1.6.1",
+                "stavarengo/php-sigep-fpdf": "dev-master"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev",
+                    "dev-develop": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "PhpSigep": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rafael Stavarengo",
+                    "email": "faelsta@gmail.com"
+                }
+            ],
+            "description": "Integração com Web Service do Correios. Gera etiquetas, consulta preços e prazos, imprime etiquetas e PLP, etc.",
+            "keywords": [
+                "correios",
+                "sigep"
+            ],
+            "support": {
+                "issues": "https://github.com/stavarengo/php-sigep/issues",
+                "source": "https://github.com/stavarengo/php-sigep/tree/master"
+            },
+            "time": "2017-03-30T22:52:46+00:00"
+        },
+        {
+            "name": "stavarengo/php-sigep-fpdf",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stavarengo/php-sigep-fpdf.git",
+                "reference": "174e9b94e6e3b99047169be0a37126625ff4c0cd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stavarengo/php-sigep-fpdf/zipball/174e9b94e6e3b99047169be0a37126625ff4c0cd",
+                "reference": "174e9b94e6e3b99047169be0a37126625ff4c0cd",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "PhpSigepFPDF.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stavarengo",
+                    "email": "faelsta@gmail.com"
+                }
+            ],
+            "description": "Unofficial FPDF library - Cópia do FPDF 1.7 usado pelo projeto stavarengo/php-sigep.",
+            "support": {
+                "issues": "https://github.com/stavarengo/php-sigep-fpdf/issues",
+                "source": "https://github.com/stavarengo/php-sigep-fpdf/tree/master"
+            },
+            "time": "2021-07-11T18:38:41+00:00"
         },
         {
             "name": "symfony/clock",
@@ -7879,7 +8022,7 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
