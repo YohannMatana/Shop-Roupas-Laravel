@@ -84,4 +84,12 @@ class CartController extends Controller
         return redirect()->route('cart.index')->with('success', 'Quantidade do produto atualizada com sucesso!');
     }
 
+    public function checkout(Request $request)
+    {
+
+        $cart = $request->session()->get('cart', []);
+
+        return view('cart.checkout', compact('cart'));
+    }
+
 }
