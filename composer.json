@@ -8,6 +8,7 @@
         "php": "^8.2",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
+        "pagseguro/pagseguro-php-sdk": "^4.2",
         "stavarengo/php-sigep": "^0.0.1"
     },
     "require-dev": {

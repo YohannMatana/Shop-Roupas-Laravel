@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Services\PagSeguroService;
 use Illuminate\Support\Facades\View;
 use App\Models\Product;
 
@@ -13,7 +14,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->singleton(PagSeguroService::class, function ($app) {
+            return new PagSeguroService();
+        });
     }
 
     /**
