@@ -14,6 +14,8 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/slice.js') }}"></script>
+        <script src="https://js.stripe.com/v3/"></script>
+
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">

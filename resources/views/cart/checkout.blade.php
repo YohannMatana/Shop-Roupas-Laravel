@@ -7,133 +7,85 @@
                     <div class="w-full md:w-2/3">
                         <div class="dark:bg-white bg-gray-100 p-6 rounded-lg shadow-lg">
                             <h2 class="text-lg font-semibold mb-4">Informações de Contato</h2>
-                            <form>
+                            <form id="payment-form">
+                                @csrf
                                 <!-- Campo de Email -->
                                 <div class="mb-4">
-                                    <label for="email" class="block text-sm font-medium text-gray-700">Endereço de
-                                        Email</label>
-                                    <input type="email" id="email" name="email" value="{{ $user->email }}"
-                                        class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                    <label for="email" class="block text-sm font-medium text-gray-700">Endereço de Email</label>
+                                    <input type="email" id="email" name="email" value="{{ $user->email }}" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
                                 </div>
                                 <!-- Campo de Telefone -->
                                 <div class="mb-4">
-                                    <label for="phone"
-                                        class="block text-sm font-medium text-gray-700">Telefone</label>
-                                    <input type="text" id="phone" name="phone" value="{{ $user->telefone }}"
-                                        class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                    <label for="phone" class="block text-sm font-medium text-gray-700">Telefone</label>
+                                    <input type="text" id="phone" name="phone" value="{{ $user->telefone }}" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
                                 </div>
                                 <!-- Nome Completo -->
-                                <div class="mb-4">
-                                    <label for="first-name" class="block text-sm font-medium text-gray-700">Nome
-                                        Completo</label>
-                                    <input type="text" id="first-name" name="first-name" value="{{ $user->name }}"
-                                        class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                <div class="grid grid-cols-1 mb-4 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label for="first-name" class="block text-sm font-medium text-gray-700">Nome Completo</label>
+                                        <input type="text" id="first-name" name="first-name" value="{{ $user->name }}" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                    </div>
                                 </div>
                                 <!-- Endereço -->
                                 <div class="mb-4">
-                                    <label for="address"
-                                        class="block text-sm font-medium text-gray-700">Endereço</label>
-                                    <input type="text" id="address" name="address" value="{{ $user->endereco }}"
-                                        class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                    <label for="address" class="block text-sm font-medium text-gray-700">Endereço</label>
+                                    <input type="text" id="address" name="address" value="{{ $user->endereco }}" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
                                 </div>
                                 <!-- Ponto de Referência -->
                                 <div class="mb-4">
-                                    <label for="apartment" class="block text-sm font-medium text-gray-700">Ponto de
-                                        Referência</label>
-                                    <input type="text" id="apartment" name="apartment"
-                                        value="{{ $user->ponto_referencia }}"
-                                        class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                    <label for="apartment" class="block text-sm font-medium text-gray-700">Ponto de Referência</label>
+                                    <input type="text" id="apartment" name="apartment" value="{{ $user->ponto_referencia }}" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
                                 </div>
                                 <!-- Cidade e Estado -->
                                 <div class="grid grid-cols-1 mb-4 md:grid-cols-2 gap-4">
                                     <div>
-                                        <label for="city"
-                                            class="block text-sm font-medium text-gray-700">Cidade</label>
-                                        <input type="text" id="city" name="city" value="{{ $user->cidade }}"
-                                            class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                        <label for="city" class="block text-sm font-medium text-gray-700">Cidade</label>
+                                        <input type="text" id="city" name="city" value="{{ $user->cidade }}" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
                                     </div>
                                     <div>
-                                        <label for="state"
-                                            class="block text-sm font-medium text-gray-700">Estado</label>
-                                        <input type="text" id="state" name="state" value="{{ $user->estado }}"
-                                            class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                        <label for="state" class="block text-sm font-medium text-gray-700">Estado</label>
+                                        <input type="text" id="state" name="state" value="{{ $user->estado }}" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
                                     </div>
                                 </div>
                                 <!-- CEP -->
                                 <div class="grid grid-cols-1 mb-4 md:grid-cols-2 gap-4">
                                     <div>
-                                        <label for="postal-code"
-                                            class="block text-sm font-medium text-gray-700">CEP</label>
-                                        <input type="text" id="postal-code" name="postal-code"
-                                            value="{{ $user->cep }}"
-                                            class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                        <label for="postal-code" class="block text-sm font-medium text-gray-700">CEP</label>
+                                        <input type="text" id="postal-code" name="postal-code" value="{{ $user->cep }}" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
                                     </div>
                                     <div>
-                                        <label for="postal-code"
-                                            class="block text-sm font-medium text-gray-700">País</label>
-                                        <input type="text" id="postal-code" name="postal-code"
-                                            value="{{ $user->pais }}"
-                                            class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                        <label for="postal-code" class="block text-sm font-medium text-gray-700">País</label>
+                                        <input type="text" id="postal-code" name="postal-code" value="{{ $user->pais }}" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
                                     </div>
                                 </div>
 
-
-                                <!-- Pagamento -->
+                                <!-- Payment Method Selection -->
                                 <h2 class="text-lg font-semibold mb-4">Pagamento</h2>
                                 <div class="mb-4">
                                     <label class="block text-sm font-medium text-gray-700">Método de Pagamento</label>
                                     <div class="mt-2 space-y-2">
                                         <label class="inline-flex items-center">
-                                            <input type="radio" name="payment-method" value="credit-card"
-                                                class="form-radio text-indigo-600">
+                                            <input type="radio" name="payment-method" value="card" class="form-radio text-indigo-600" checked>
                                             <span class="ml-2">Cartão de Crédito</span>
                                         </label>
                                         <label class="inline-flex items-center">
-                                            <input type="radio" name="payment-method" value="paypal"
-                                                class="form-radio text-indigo-600">
-                                            <span class="ml-2">Boleto</span>
-                                        </label>
-                                        <label class="inline-flex items-center">
-                                            <input type="radio" name="payment-method" value="etransfer"
-                                                class="form-radio text-indigo-600">
+                                            <input type="radio" name="payment-method" value="pix" class="form-radio text-indigo-600">
                                             <span class="ml-2">Pix</span>
                                         </label>
                                     </div>
                                 </div>
-                                <div class="mb-4">
-                                    <label for="card-number" class="block text-sm font-medium text-gray-700">Card
-                                        number</label>
-                                    <input type="text" id="card-number" name="card-number"
-                                        class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
-                                </div>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div>
-                                        <label for="card-name" class="block text-sm font-medium text-gray-700">Name on
-                                            card</label>
-                                        <input type="text" id="card-name" name="card-name"
-                                            class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
-                                    </div>
-                                    <div>
-                                        <label for="cvc"
-                                            class="block text-sm font-medium text-gray-700">CVC</label>
-                                        <input type="text" id="cvc" name="cvc"
-                                            class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
-                                    </div>
-                                </div>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div>
-                                        <label for="exp-month"
-                                            class="block text-sm font-medium text-gray-700">Expiration month</label>
-                                        <input type="text" id="exp-month" name="exp-month"
-                                            class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
-                                    </div>
-                                    <div>
-                                        <label for="exp-year"
-                                            class="block text-sm font-medium text-gray-700">Expiration year</label>
-                                        <input type="text" id="exp-year" name="exp-year"
-                                            class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
-                                    </div>
-                                </div>
+
+                                <!-- Stripe Elements Placeholder -->
+                                <div id="card-element" class="mb-4"></div>
+                                <div id="pix-element" class="mb-4"></div>
+
+                                <!-- Stripe Errors -->
+                                <div id="card-errors" role="alert" class="text-red-500 mb-4"></div>
+
+                                <!-- Submit Button -->
+                                <button id="submit-button" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                                    Confirmar Compra
+                                </button>
                             </form>
                         </div>
                     </div>
@@ -145,20 +97,15 @@
                             <div class="space-y-4">
                                 @foreach ($cart as $item)
                                     <div class="flex items-center justify-between">
-                                        <div
-                                            class="h-16 w-16 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                                            <img src="{{ $item['product']->image }}"
-                                                alt="{{ $item['product']->name }}"
-                                                class="h-full w-full object-center">
+                                        <div class="h-16 w-16 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                                            <img src="{{ $item['product']->image }}" alt="{{ $item['product']->name }}" class="h-full w-full object-center">
                                         </div>
                                         <div class="ml-4 flex-grow">
                                             <h3 class="text-sm font-medium">{{ $item['product']->name }}</h3>
-                                            <p class="text-sm text-gray-500">{{ $item['color'] }},
-                                                {{ $item['size'] }}</p>
+                                            <p class="text-sm text-gray-500">{{ $item['color'] }}, {{ $item['size'] }}</p>
                                         </div>
                                         <div>
-                                            <span
-                                                class="text-sm font-medium">R${{ number_format($item['product']->price, 2, ',', '.') }}</span>
+                                            <span class="text-sm font-medium">R${{ number_format($item['product']->price, 2, ',', '.') }}</span>
                                         </div>
                                     </div>
                                 @endforeach
@@ -167,12 +114,8 @@
                                 <form method="POST" action="{{ route('cart.calculateFrete') }}">
                                     @csrf
                                     <div class="flex justify-between text-sm font-medium mt-4">
-                                        <input name="cep" x-data x-ref="cepInput" x-init="$refs.cepInput.addEventListener('input', function() { this.value = this.value.replace(/[^0-9]/g, '').slice(0, 8).replace(/(\d{5})(\d{3})/, '$1-$2') })"
-                                            type="text" class="w-2/3 px-3 py-2 border border-gray-300 rounded-md"
-                                            placeholder="CEP" required>
-                                        <button type="submit"
-                                            class="w-1/3 bg-indigo-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-indigo-700 ml-2">Calcular
-                                            Frete</button>
+                                        <input name="cep" x-data x-ref="cepInput" x-init="$refs.cepInput.addEventListener('input', function () { this.value = this.value.replace(/[^0-9]/g, '').slice(0, 8).replace(/(\d{5})(\d{3})/, '$1-$2') })" type="text" class="w-2/3 px-3 py-2 border border-gray-300 rounded-md" placeholder="CEP" required>
+                                        <button type="submit" class="w-1/3 bg-indigo-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-indigo-700 ml-2">Calcular Frete</button>
                                     </div>
                                 </form>
                             </div>
@@ -185,28 +128,93 @@
                                     <p class="text-gray-500">Frete</p>
                                     <p class="text-gray-900">R${{ number_format($frete, 2, ',', '.') }}</p>
                                 </div>
-                            </div>
-                            <div class="border-t border-gray-200 mt-4 pt-4">
-                                <div class="flex justify-between text-lg font-medium">
-                                    <p>Total</p>
-                                    <p>R${{ number_format($subtotal + $frete, 2, ',', '.') }}</p>
+                                <div class="flex justify-between text-sm font-medium text-gray-900 mt-4">
+                                    <p class="text-base">Total</p>
+                                    <p class="text-base">R${{ number_format($subtotal + $frete, 2, ',', '.') }}</p>
                                 </div>
-                            </div>
-                            <div class="mt-6">
-                                <button type="submit"
-                                    class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Confirmar
-                                    Compra</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Footer -->
-        <x-footer class="mt-auto" />
+        <x-footer/>
     </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+        // Stripe e Elements
+        const stripe = Stripe('{{ env('STRIPE_KEY') }}');
+        const elements = stripe.elements();
 
+        // Elementos do Stripe
+        const cardElement = elements.create('card');
+        cardElement.mount('#card-element');
 
+        const paymentForm = document.getElementById('payment-form');
+        const submitButton = document.getElementById('submit-button');
+        const paymentMethodRadios = document.querySelectorAll('input[name="payment-method"]');
 
+        // Alternar a visibilidade dos elementos de pagamento
+        function updatePaymentMethod() {
+            const selectedMethod = document.querySelector('input[name="payment-method"]:checked').value;
+            document.getElementById('card-element').style.display = selectedMethod === 'card' ? 'block' : 'none';
+        }
+
+        paymentMethodRadios.forEach(radio => radio.addEventListener('change', updatePaymentMethod));
+        updatePaymentMethod();
+
+        paymentForm.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            submitButton.disabled = true;
+
+            const response = await fetch('/create-payment-intent', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                body: JSON.stringify({ amount: {{ $subtotal + $frete }} })
+            });
+
+            const { clientSecret } = await response.json();
+
+            const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+
+            let result;
+            if (paymentMethod === 'card') {
+                result = await stripe.confirmCardPayment(clientSecret, {
+                    payment_method: {
+                        card: cardElement,
+                        billing_details: {
+                            name: document.getElementById('first-name').value,
+                            email: document.getElementById('email').value
+                        }
+                    }
+                });
+            } else if (paymentMethod === 'pix') {
+                // Em vez de usar o elemento PIX, crie o PaymentIntent e redirecione para o link de pagamento ou mostre as instruções de pagamento.
+                // Aqui seria necessário adaptar o fluxo, como criar um link de pagamento e redirecionar.
+                result = await stripe.confirmPixPayment(clientSecret, {
+                    payment_method: {
+                        billing_details: {
+                            name: document.getElementById('first-name').value,
+                            email: document.getElementById('email').value
+                        }
+                    }
+                });
+            }
+
+            if (result.error) {
+                document.getElementById('card-errors').textContent = result.error.message;
+                submitButton.disabled = false;
+            } else {
+                if (result.paymentIntent.status === 'succeeded') {
+                    // Pagamento realizado com sucesso
+                    alert('Pagamento realizado com sucesso!');
+                    window.location.href = "/thank-you"; // Redirecionar para uma página de agradecimento
+                }
+            }
+        });
+    });
+</script>
 </x-app-layout>

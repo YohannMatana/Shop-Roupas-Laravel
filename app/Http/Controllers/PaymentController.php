@@ -3,23 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Services\PagSeguroService;
+use Stripe\Stripe;
+use Stripe\PaymentIntent;
 
 class PaymentController extends Controller
 {
-    protected $pagSeguroService;
-
-    public function __construct(PagSeguroService $pagSeguroService)
+    public function createPaymentIntent(Request $request)
     {
-        $this->pagSeguroService = $pagSeguroService;
-    }
+        Stripe::setApiKey(env('STRIPE_SECRET'));
 
-    public function processPayment(Request $request)
-    {
-        $data = $request->all();
-        $response = $this->pagSeguroService->createPaymentRequest($data);
+        $amount = $request->input('amount');
 
-        // Trate a resposta conforme necessário
-        return response()->json($response);
+        $paymentIntent = PaymentIntent::create([
+            'amount' => $amount * 100, // Valor em centavos
+            'currency' => 'brl',
+            'payment_method_types' => ['card', 'pix'],
+        ]);
+
+        return response()->json([
+            'clientSecret' => $paymentIntent->client_secret,
+        ]);
     }
 }

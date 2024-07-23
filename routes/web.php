@@ -22,7 +22,7 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
 Route::get('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 Route::post('/cart/calculate-frete', [CartController::class, 'calculateFrete'])->name('cart.calculateFrete');
-Route::post('/checkout', [PaymentController::class, 'processPayment'])->name('checkout.process');
+Route::post('/create-payment-intent', [PaymentController::class, 'createPaymentIntent']);
 
 });
 

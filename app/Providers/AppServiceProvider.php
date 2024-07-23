@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Services\PagSeguroService;
 use Illuminate\Support\Facades\View;
 use App\Models\Product;
 
@@ -14,9 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->singleton(PagSeguroService::class, function ($app) {
-            return new PagSeguroService();
-        });
+        //
     }
 
     /**
@@ -24,15 +21,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // View::composer('components.navigation', function ($view) {
-        //     $cart = session()->get('cart', []);
-        //     $totalItems = 0;
-
-        //     foreach ($cart as $item) {
-        //         $totalItems += $item['quantity'];
-        //     }
-
-        //     $view->with('totalItems', $totalItems);
-        // });
+        //
     }
 }
