@@ -82,10 +82,6 @@
                                 <!-- Stripe Errors -->
                                 <div id="card-errors" role="alert" class="text-red-500 mb-4"></div>
 
-                                <!-- Submit Button -->
-                                <button id="submit-button" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                                    Confirmar Compra
-                                </button>
                             </form>
                         </div>
                     </div>
@@ -105,7 +101,7 @@
                                             <p class="text-sm text-gray-500">{{ $item['color'] }}, {{ $item['size'] }}</p>
                                         </div>
                                         <div>
-                                            <span class="text-sm font-medium">R${{ number_format($item['product']->price, 2, ',', '.') }}</span>
+                                            <span class="text-sm font-medium">R$ {{ number_format($item['product']->price, 2, ',', '.') }}</span>
                                         </div>
                                     </div>
                                 @endforeach
@@ -122,99 +118,27 @@
                             <div class="border-t border-gray-200 mt-4 pt-4">
                                 <div class="flex justify-between text-sm font-medium">
                                     <p class="text-gray-500">Subtotal</p>
-                                    <p class="text-gray-900">R${{ number_format($subtotal, 2, ',', '.') }}</p>
+                                    <p class="text-gray-900">R$ {{ number_format($subtotal, 2, ',', '.') }}</p>
                                 </div>
                                 <div class="flex justify-between text-sm font-medium">
                                     <p class="text-gray-500">Frete</p>
-                                    <p class="text-gray-900">R${{ number_format($frete, 2, ',', '.') }}</p>
+                                    <p class="text-gray-900">R$ {{ number_format($frete, 2, ',', '.') }}</p>
                                 </div>
                                 <div class="flex justify-between text-sm font-medium text-gray-900 mt-4">
                                     <p class="text-base">Total</p>
-                                    <p class="text-base">R${{ number_format($subtotal + $frete, 2, ',', '.') }}</p>
+                                    <p class="text-base">R$ {{ number_format($subtotal + $frete, 2, ',', '.') }}</p>
                                 </div>
                             </div>
+                            <!-- Submit Button -->
+                            <button id="submit-button" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 mt-4">
+                                Confirmar Compra
+                            </button>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
         <x-footer/>
     </div>
-    <script>
-    document.addEventListener('DOMContentLoaded', async function() {
-        // Stripe e Elements
-        const stripe = Stripe('{{ env('STRIPE_KEY') }}');
-        const elements = stripe.elements();
-
-        // Elementos do Stripe
-        const cardElement = elements.create('card');
-        cardElement.mount('#card-element');
-
-        const paymentForm = document.getElementById('payment-form');
-        const submitButton = document.getElementById('submit-button');
-        const paymentMethodRadios = document.querySelectorAll('input[name="payment-method"]');
-
-        // Alternar a visibilidade dos elementos de pagamento
-        function updatePaymentMethod() {
-            const selectedMethod = document.querySelector('input[name="payment-method"]:checked').value;
-            document.getElementById('card-element').style.display = selectedMethod === 'card' ? 'block' : 'none';
-        }
-
-        paymentMethodRadios.forEach(radio => radio.addEventListener('change', updatePaymentMethod));
-        updatePaymentMethod();
-
-        paymentForm.addEventListener('submit', async function(event) {
-            event.preventDefault();
-            submitButton.disabled = true;
-
-            const response = await fetch('/create-payment-intent', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                },
-                body: JSON.stringify({ amount: {{ $subtotal + $frete }} })
-            });
-
-            const { clientSecret } = await response.json();
-
-            const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
-
-            let result;
-            if (paymentMethod === 'card') {
-                result = await stripe.confirmCardPayment(clientSecret, {
-                    payment_method: {
-                        card: cardElement,
-                        billing_details: {
-                            name: document.getElementById('first-name').value,
-                            email: document.getElementById('email').value
-                        }
-                    }
-                });
-            } else if (paymentMethod === 'pix') {
-                // Em vez de usar o elemento PIX, crie o PaymentIntent e redirecione para o link de pagamento ou mostre as instruções de pagamento.
-                // Aqui seria necessário adaptar o fluxo, como criar um link de pagamento e redirecionar.
-                result = await stripe.confirmPixPayment(clientSecret, {
-                    payment_method: {
-                        billing_details: {
-                            name: document.getElementById('first-name').value,
-                            email: document.getElementById('email').value
-                        }
-                    }
-                });
-            }
-
-            if (result.error) {
-                document.getElementById('card-errors').textContent = result.error.message;
-                submitButton.disabled = false;
-            } else {
-                if (result.paymentIntent.status === 'succeeded') {
-                    // Pagamento realizado com sucesso
-                    alert('Pagamento realizado com sucesso!');
-                    window.location.href = "/thank-you"; // Redirecionar para uma página de agradecimento
-                }
-            }
-        });
-    });
-</script>
 </x-app-layout>
