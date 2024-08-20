@@ -10,6 +10,22 @@
                     </a>
                 </div>
 
+                <!-- Search -->
+                <div class="flex items-center lg:ml-6">
+                    <div class="relative">
+                        <input type="text"
+                            class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Digite aqui o que procura">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3">
+                            <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex items-center">
                     <x-nav-link class="mb-1" :href="route('home')" :active="request()->routeIs('home')">
@@ -53,17 +69,9 @@
                         </svg>
                     </a>
                 </div>
-                <!-- Search -->
-                <div class="flex lg:ml-6">
-                    <a href="#" class="p-2 text-gray-400 hover:text-gray-500">
-                        <span class="sr-only">Search</span>
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                            aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                        </svg>
-                    </a>
-                </div>
+
+
+                <!-- Login -->
                 <div class="ml-auto flex items-center">
                     @guest
                         <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
@@ -110,9 +118,6 @@
                         </x-dropdown>
                     @endauth
                 </div>
-
-
-
             </div>
 
             <!-- Hamburger -->
